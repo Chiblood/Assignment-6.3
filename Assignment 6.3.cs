@@ -2,19 +2,22 @@
 You are developing a program to manage a call queue of customers using the Queue  in C#. The program creates a queue of callers and demonstrates the functionality of enqueueing elements into the queue and iterating over the elements and dequeuing.
 
 Use linked lists.
+Have a method to show the callers in the queue.
+Use the Call class.
 */
 namespace Assignment_6._3;
+
 public class Program
 {
     public static void Main(string[] args)
     {
-        Queue<string> callQueue = new Queue<string>();
+        Queue<Call> callQueue = new Queue<Call>();
 
         // Enqueue callers into the queue
-        callQueue.Enqueue("Alice");
-        callQueue.Enqueue("Bob");
-        callQueue.Enqueue("Charlie");
-        callQueue.Enqueue("Diana");
+        callQueue.Enqueue(new Call("Alice"));
+        callQueue.Enqueue(new Call("Bob"));
+        callQueue.Enqueue(new Call("Charlie"));
+        callQueue.Enqueue(new Call("Diana"));
 
         Console.WriteLine("Callers in the queue:");
         foreach (var caller in callQueue)
@@ -26,8 +29,18 @@ public class Program
         Console.WriteLine("\nDequeuing callers:");
         while (callQueue.Count > 0)
         {
-            string caller = callQueue.Dequeue();
+            Call caller = callQueue.Dequeue();
             Console.WriteLine($"Calling {caller}...");
+        }
+    }
+    
+    // Method to show the callers in the queue
+    public static void ShowCallers(Queue<Call> queue)
+    {
+        Console.WriteLine("Callers in the queue:");
+        foreach (var caller in queue)
+        {
+            Console.WriteLine(caller);
         }
     }
 }
