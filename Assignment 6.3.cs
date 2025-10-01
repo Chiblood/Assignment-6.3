@@ -13,8 +13,7 @@ public class Program
 
     public static void Main(string[] args)
     {
-
-        // Enqueue callers into the queue
+        // Enqueue example callers into the queue
         callQueue.Enqueue(new Call("Alice"));
         callQueue.Enqueue(new Call("Bob"));
         callQueue.Enqueue(new Call("Charlie"));
